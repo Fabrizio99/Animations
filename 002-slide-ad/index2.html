@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+      }
+      .banner {
+        background-color: yellow;
+      }
+      .logo {
+        height: 70px;
+        background-image: url("/logo-Google\ 1.svg");
+        animation: movement linear forwards infinite;
+        animation-duration: 150s;
+      }
+
+      @keyframes movement {
+        0% {
+          background-position: 0;
+        }
+        100% {
+          background-position: calc(1000vw);
+        }
+      }
+
+      /* .logo:hover {
+        background-position: 100vw;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <div class="logo"></div>
+    </div>
+
+    <script>
+      const logo = document.querySelector(".logo");
+      window.addEventListener("resize", function (event) {
+        logo.style.animationDuration = `${(150 * window.innerWidth) / 1536}s`;
+      });
+    </script>
+  </body>
+</html>
